@@ -12,6 +12,20 @@ const allPhones = phones =>{
 
     const phoneContainer = document.getElementById('phoneContainer')
     phoneContainer.textContent = ''
+
+    const showAll = document.getElementById('show-all')
+    
+    if(phones.length>12){
+        showAll.classList.remove('hidden')
+    }
+    else{
+        showAll.classList.add('hidden')
+    }
+
+    phones = phones.slice(0,12)
+
+    console.log(phones)
+
     phones.forEach(phone => {
 
         console.log(phone)
@@ -33,14 +47,27 @@ const allPhones = phones =>{
 
         phoneContainer.appendChild(phoneCard)
         
-    }
-)
+    })
+    loadingPage(false)
 }
 
 const searchField = () =>{
-    
+
+    loadingPage(true)    
     const searchValue = document.getElementById('input')
     const searchText = searchValue.value
     loadPhone(searchText)
     console.log(searchText)
+}
+
+const loadingPage = isloading =>{
+    const loader = document.getElementById('loader')
+    if(isloading)
+    {
+        loader.classList.remove('hidden')
+    }
+    else
+    {
+        loader.classList.add('hidden')
+    }
 }
