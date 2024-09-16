@@ -104,6 +104,6 @@ const showPhoneDetails = (phone) =>{
      <p class = "my-4">Slug: ${phone?.slug}</p>
      <p>Release Date: ${phone?.releaseDate}</p>
      <p class = "my-4">Brand: ${phone?.brand}</p>
-     <p>GPS: ${phone?.others?.GPS}</p>
+     <p>GPS: ${phone?.others?.GPS || 'No GPS available'}</p>
     `
 }
